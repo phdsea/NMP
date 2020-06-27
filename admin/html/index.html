@@ -15,6 +15,7 @@
     <script src="../../Model/js/jQuery.js"></script>
     <script src="../../Model/js/bootstrap.js"></script>
     <script src="../../Model/js/vue.js"></script>
+
 </head>
 
 <body>
@@ -114,8 +115,8 @@
                 <td>DS-2CD7T2GWD-LMy</td>
                 <td></td>
                 <td></td>
-                <td style="color: green;">在线</td>
-                <td style="color: green;">在用</td>
+                <td class="equipmentState">在线</td>
+                <td class="usingState">在用</td>
                 <td>xxxxxxx项目</td>
                 <td></td>
                 <td>区域01</td>
@@ -131,8 +132,8 @@
                 <td>DS-2CD7T2GWD-CBG</td>
                 <td></td>
                 <td></td>
-                <td style="color: #ff8080;">不在线</td>
-                <td style="color: green;">在用</td>
+                <td class="equipmentState">不在线</td>
+                <td class="usingState">在用</td>
                 <td>xxxxxxx项目</td>
                 <td></td>
                 <td>区域01</td>
@@ -148,8 +149,8 @@
                 <td>DS-2CD7T2GWD-DQM</td>
                 <td></td>
                 <td></td>
-                <td style="color: #ff8080;">不在线</td>
-                <td style="color: #ff8080;">空闲</td>
+                <td class="equipmentState">不在线</td>
+                <td class="usingState">空闲</td>
                 <td>xxxxxxx项目</td>
                 <td></td>
                 <td>区域01</td>
@@ -165,8 +166,8 @@
                 <td>DS-2CD7T2GWD-SQM</td>
                 <td></td>
                 <td></td>
-                <td style="color: #ff8080;">不在线</td>
-                <td style="color: #cc0000;">报废</td>
+                <td class="equipmentState">不在线</td>
+                <td class="usingState">报废</td>
                 <td>xxxxxxx项目</td>
                 <td></td>
                 <td>区域01</td>
@@ -182,8 +183,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td class="equipmentState"></td>
+                <td class="usingState"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -199,8 +200,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td class="equipmentState"></td>
+                <td class="usingState"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -216,8 +217,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td class="equipmentState"></td>
+                <td class="usingState"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -233,8 +234,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td class="equipmentState"></td>
+                <td class="usingState"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -250,8 +251,9 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td class="equipmentState">
+                </td>
+                <td class="usingState"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -268,3 +270,39 @@
 </body>
 
 </html>
+
+<script>
+    let equipmentState = document.getElementsByClassName("equipmentState");
+
+    let usingState = document.getElementsByClassName("usingState");
+
+    //根据设备状态设置字体颜色
+    for (var i = 0; i < equipmentState.length; i++) {
+
+        let state = equipmentState[i];
+
+        if (state.textContent == "在线") state.style.color = "green";
+
+        else state.style.color = "#ff8080";
+
+    }
+
+    //根据使用状态设置字体颜色
+    for (var i = 0; i < usingState.length; i++) {
+
+        let state_ = usingState[i];
+
+        if (state_.textContent == "在用")
+
+            state_.style.color = "green";
+
+        else if (state_.textContent == "空闲")
+
+            state_.style.color = "#ff8080";
+
+        else
+
+            state_.style.color = "#cc0000";
+
+    }
+</script>
